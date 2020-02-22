@@ -19,10 +19,7 @@ torqueZ = sind(beta)*Tmax_fgc/4;
 daysBetweenDesaturation = 14; % momentum dumping every 2 weeks
 FOS = 1.5;
 momentumStorage = Hw_fgc*daysBetweenDesaturation*FOS/4;
-fprintf('\n\n---------------------------------\n')
-fprintf('FGC Pyramidal 4 Reacion Wheels\n')
-fprintf('---------------------------------\n')
-fprintf('Beta Tilt angle:\t%.1f\t\t[deg]\n',beta)
-fprintf('Torque Per wheel:\t%.2E\t[N*ms]\n',torqueXY)
-fprintf('Storage Per Wheel:\t%.2E\t[N*m*s]\n',momentumStorage)
+
+fprintf('\n\nPyramidal 4 Reacion Wheel System
+
 

@@ -3,9 +3,9 @@ clearvars
 paramInit
 
 %% Gravity Gradient
-Tg_fgc = 3*earth.mu/2/fgc.sma^3*(max(max(fgc.moi))-min(max(fgc.moi)))*sind(2*45); % 45 deg worst case scenario during refueling maneuvers
+Tg_fgc = 3*earth.mu/2/fgc.sma^3*max(max(fgc.moi))-min(max(fgc.moi))*sin(2*pi/2); % maximum at 90 deg offset
 
-Tg_depot = 3*earth.mu/2/depot.sma^3*(max(max(depot.moi))-min(max(depot.moi)))*sind(2*1); % 1 deg offset
+Tg_depot = 3*earth.mu/2/depot.sma^3*abs(depot.moi(3,3)-moi_min)*sind(2*1); % 1 deg offset from z
 
 %% Solar Radiation
 Tsp_fgc = earth.Fs/c*fgc.ls^2*fgc.Cr*cos(0)*abs(norm(fgc.Cg)-0.1); % per 0.1 m separation of Cps and Cg
@@ -58,36 +58,33 @@ Hw_depot = Hw_depot_g + Hw_depot_srp;
 thrustForce_fgc = fgc.wheelMomentum/fgc.thrustMomentArm; % N*s
 thrustForce_depot = depot.wheelMomentum/depot.thrustMomentArm; % N*s
 
-fprintf('\n\n---------------------------------\n')
-fprintf('ACS Analysis\n')
-fprintf('---------------------------------\n')
-fprintf('Gravity Gradient\t[N*m]\n')
-fprintf('---------------------------------\n')
+fprintf('\nGravity Gradient\t[N*m]\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\t%0.3E\nDepot\t%0.3E\n',Tg_fgc,Tg_depot)
 fprintf('\nSolar Radiation\t\t[N*m]\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\t%0.3E\nDepot\t%0.3E\n',Tsp_fgc,Tsp_depot)
 fprintf('\nMagnetic Field\t\t[N*m]\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\t%0.3E\nDepot\t%0.3E\n',Tm_fgc,Tm_depot)
 fprintf('\nAerodynamics\t\t[N*m]\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('Orbit altitude large enough to disregard aerodynamic torque\n')
 fprintf('\nSlew Rates\t\t\t[deg/sec]\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\n\tEarth Pointing:\t\t%0.3E\n\tTarget Spin match:\t%0.3E\n\tRendezvous Burn\t\t%0.3E\n\tSun Acquisition:\t%0.3E\n'...
     ,earthPointing*180/pi,targetMatching*180/pi,rendezvousManeuver*180/pi,sunAcquisition*180/pi)
 fprintf('Depot:\n\tEarth Pointing:\t\t%0.3E\n\tSun Acquisition:\t%0.3E\n'...
     ,earthPointing*180/pi,sunAcquisition*180/pi)
 fprintf('\nMomentum Storage\t[N*m*s]\n')
 fprintf('Per Orbit\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\t%0.3E\nDepot:\t%0.3E\n',Hw_fgc,Hw_depot)
 fprintf('\nMax Torques\t\t\t[N*m]\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\t%0.3E\nDepot:\t%0.3E\n',Tmax_fgc,Tmax_depot)
 fprintf('\nThrust Force\t\t[N*s]\n')
 fprintf('Momentum Dumping\n')
-fprintf('---------------------------------\n')
+fprintf('-------------------------------\n')
 fprintf('FGC:\t%0.3E\nDepot:\t%0.3E\n',thrustForce_fgc,thrustForce_depot)
 

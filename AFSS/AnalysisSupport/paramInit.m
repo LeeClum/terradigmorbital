@@ -10,17 +10,21 @@ fgc.thrust          =   20; % N
 fgc.thrustCount     =   2; % number of thruster
 fgc.pulseWidth      =   0.001; % sec
 fgc.mass            =   1004.7; % kg
-fgc.moi             =   [112.89  0   0;
-                         0  112.89   0;
-                         0  0   112.89];
 fgc.Cr              =   1.6; % reflectivity constant
-fgc.ls              =   0.53; % m length of side
-fgc.lf              =   0.53; % m length of face
+% lengths estimated using volume of .53 radius sphere
+% side length twice face
+fgc.ls              =   1.3562; % m length of side
+fgc.lf              =   0.6781; % m length of face
 fgc.Cg              =   [0 0]; % center of gravity coord 
-fgc.Cps             =   [0.1 0]; % location of center of solar pressure
 fgc.thrustMomentArm =   0.5; % m
 fgc.wheelMomentum   =   0.3; % N*m*s
-
+Ix                  =   1/12*fgc.ls*fgc.lf^3;
+Iy                  =   1/12*fgc.lf*fgc.ls^3;
+Iz                  =   1/12*fgc.lf^4;
+fgc.moi             =   [Ix  0    0;
+                         0   Iy   0;
+                         0   0   Iz]*fgc.mass;
+                     
 fgc.sma             =   42164000; % m
 fgc.ecc             =   0;
 fgc.incl            =   0; % rad
@@ -29,17 +33,21 @@ fgc.argp            =   0; % rad
 fgc.tran            =   0; % rad
 %% Depot
 
-depot.mass              =   0;
-depot.moi               =   [23000  0       0;
-                             0      23000   0;
-                             0      0       23000];
+depot.mass              =   14766; % kg
 depot.Cr                =   1.6; % reflectivity constant
-depot.ls                =   1.19; % m length of side
-depot.lf                =   1.19; % m lenfth of face
+% lengths estimated using volume of 1.19 radius sphere
+% side length twice face
+depot.ls                =   3.0451; % m length of side
+depot.lf                =   1.5225; % m lenfth of face
 depot.Cg                =   [0 0]; % center of gravity coord
-depot.Cps               =   [0.1 0]; % location of center of solar pressure
 depot.thrustMomentArm   =   0.5; % m
 depot.wheelMomentum     =   0.9; % N*m*s
+Ix                      =   1/12*depot.ls*depot.lf^3;
+Iy                      =   1/12*depot.lf*depot.ls^3;
+Iz                      =   1/12*depot.lf^4;
+depot.moi               =   [Ix  0    0;
+                             0   Iy   0;
+                             0   0   Iz]*depot.mass;
     
 depot.sma               =   42164000; % m
 depot.ecc               =   0;
