@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MovieTimeline>
+  <Info>
+    <SavedBy>Movie Timeline v11.5</SavedBy>
+    <FileFormatVersion>2</FileFormatVersion>
+  </Info>
+  <Project>
+    <FullInterval>
+      <StartTime>0</StartTime>
+      <EndTime>172800</EndTime>
+    </FullInterval>
+    <ZoomInterval>
+      <StartTime>0</StartTime>
+      <EndTime>115200</EndTime>
+    </ZoomInterval>
+    <LastTrackNum>1</LastTrackNum>
+  </Project>
+  <Tracks>
+    <Track>
+      <Shot>
+        <Format>WMV</Format>
+        <PathFileName>C:\Users\cjmul\Desktop\CisLunar\RendezvousManeuverV2</PathFileName>
+        <StartFrame>0</StartFrame>
+        <NumDigits>4</NumDigits>
+        <Bitrate>5000</Bitrate>
+        <WMV_Codec />
+        <Interval>
+          <StartTime>0</StartTime>
+          <EndTime>115200</EndTime>
+        </Interval>
+      </Shot>
+      <Collapsed>true</Collapsed>
+      <Selected>false</Selected>
+      <is2D>false</is2D>
+      <WindowID>1</WindowID>
+      <WindowCustomName />
+      <WindowWidth>1280</WindowWidth>
+      <WindowHeight>720</WindowHeight>
+      <PixelAspect>1</PixelAspect>
+      <PreviewWidth>0</PreviewWidth>
+      <WindowSizeName>HDTV - 720p - 1280x720</WindowSizeName>
+      <AntiAliasing>3</AntiAliasing>
+      <MotionBlur>false</MotionBlur>
+      <OffScreenRender>true</OffScreenRender>
+      <LastSubTrackNum>0</LastSubTrackNum>
+      <SubTracks>
+        <SubtrackTimeStep>
+          <Name>Time step</Name>
+          <Selected>false</Selected>
+          <Keyframes>
+            <Key>
+              <Time>0</Time>
+              <Selected>false</Selected>
+              <Value>128</Value>
+            </Key>
+          </Keyframes>
+        </SubtrackTimeStep>
+        <SubtrackCamera>
+          <Name>Camera</Name>
+          <Selected>false</Selected>
+          <Keyframes>
+            <Key>
+              <Time>0</Time>
+              <Selected>false</Selected>
+              <Type>Controlled</Type>
+              <Name>Path0</Name>
+            </Key>
+          </Keyframes>
+        </SubtrackCamera>
+      </SubTracks>
+    </Track>
+  </Tracks>
+</MovieTimeline>
