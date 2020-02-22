@@ -14,7 +14,8 @@ fgc.moi             =   [112.89  0   0;
                          0  112.89   0;
                          0  0   112.89];
 fgc.Cr              =   1.6; % reflectivity constant
-fgc.As              =   2*pi*0.53^2; % m^2
+fgc.ls              =   0.53; % m length of side
+fgc.lf              =   0.53; % m length of face
 fgc.Cg              =   [0 0]; % center of gravity coord 
 fgc.Cps             =   [0.1 0]; % location of center of solar pressure
 fgc.thrustMomentArm =   0.5; % m
@@ -33,7 +34,8 @@ depot.moi               =   [23000  0       0;
                              0      23000   0;
                              0      0       23000];
 depot.Cr                =   1.6; % reflectivity constant
-depot.As                =   2*pi*1.19^2; % m^2
+depot.ls                =   1.19; % m length of side
+depot.lf                =   1.19; % m lenfth of face
 depot.Cg                =   [0 0]; % center of gravity coord
 depot.Cps               =   [0.1 0]; % location of center of solar pressure
 depot.thrustMomentArm   =   0.5; % m

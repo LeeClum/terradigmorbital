@@ -135,8 +135,21 @@ for elapsedSec = 0:stepSize:scenarioDuration
 end
 
 %% Analysis
+transferDuration = time_hold(1)-burnPos(4,1);
 holdDuration = scenarioDuration - time_hold(1);
 thrustCyclePeriod = holdDuration/thrustCycle(2);
+[~,n] = size(burnPos);
+for i = 2:n
+    TBB(i-1) = burnPos(4,i) - burnPos(4,i-1);
+end
+minTimeBetweenBurn = min(TBB); 
+
+%% Output Analysis
+fprintf('\n\nTransfer Trajectory Duration:\t%.0f\t[sec]\n',transferDuration)
+fprintf('Min Time Between Burn:\t\t\t%0.1f\t[sec]\n',minTimeBetweenBurn)
+fprintf('Hold Maneuver Duration:\t\t\t%.0f\t[sec]\n',holdDuration)
+fprintf('Hold Thrust Cycle Period:\t\t%.1f\t[sec]\n',thrustCyclePeriod)
+
 
 %% Plot Rendezvous
 figure(1)
