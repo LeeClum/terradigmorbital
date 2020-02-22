@@ -1,3 +1,3 @@
 Analysis:		Completed Analysis
 AnalysisSupport: 	Scripts and functions used for anlaysis
-PDR_Slides:		Working Directory of Presentation Slides
+PDR_Slides:		Working Directory of Presentation Slides for PDR
