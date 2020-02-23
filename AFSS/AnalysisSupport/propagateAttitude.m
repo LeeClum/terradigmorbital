@@ -9,8 +9,8 @@ tolerance = 1e-13;
 options = odeset('RelTol',tolerance,'AbsTol',tolerance);
 
 trange = [0 60];
-x = [0.00001; 0; 0; pi/100; 0; 0];
-T = [0.001 0 0.001];
+x = [0.00001; 0; 0; pi/100; 0; pi/100];
+T = [0.001 0 0.000];
 
 %% Propagate Attitude Dynamics
 [tout,att] = ode45(@SatAttDyn, trange, x, options, moi, T);
@@ -35,26 +35,25 @@ for i = 1:n
           sin(psi)  cos(psi)        0;
             0           0           1];
         
-    rvec = Rz*Ry*Rz*att(1:3,i);
+    rvec = Rz*Ry*Rx*[1;1;1];
     r(:,i) = rvec/norm(rvec);
 end
 
 figure(1)
 hold on
 rotate3d on
-% axis equal
+axis equal
 grid on
-plot3(0,0,0,'.','MarkerSize',5,'Color','k')
-plot3(r(1,:),r(2,:),r(3,:))
-plot3(r(1,1),r(2,1),r(3,1),'.','Color','b')
-plot3(r(1,end),r(2,end),r(3,end),'.','Color','r')
+plot3(0,0,0,'.','MarkerSize',10,'Color','k','HandleVisibility','off')
+plot3(r(1,:),r(2,:),r(3,:),'Color','r','HandleVisibility','off')
+plot3(r(1,1),r(2,1),r(3,1),'.','Color','b','HandleVisibility','off')
+plot3(r(1,end),r(2,end),r(3,end),'.','Color',[0.494,0.184,0.5560],'HandleVisibility','off')
+quiver3(0,0,0,r(1,1),r(2,1),r(3,1),'Color','b')
+quiver3(0,0,0,r(1,end),r(2,end),r(3,end),'Color',[0.494,0.184,0.5560])
 title('Satellite Attitude')
 xlabel('X')
 ylabel('Y')
 zlabel('Z')
-
-
-
-
+legend({'Initial Ponting','Final Pointing'})
 
 

@@ -23,6 +23,6 @@ fprintf('\n\n---------------------------------\n')
 fprintf('FGC Pyramidal 4 Reacion Wheels\n')
 fprintf('---------------------------------\n')
 fprintf('Beta Tilt angle:\t%.1f\t\t[deg]\n',beta)
-fprintf('Torque Per wheel:\t%.2E\t[N*ms]\n',torqueXY)
+fprintf('Torque Per wheel:\t%.2E\t[N*m]\n',torqueXY)
 fprintf('Storage Per Wheel:\t%.2E\t[N*m*s]\n',momentumStorage)
 
